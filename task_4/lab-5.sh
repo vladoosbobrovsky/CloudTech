@@ -2,7 +2,7 @@
 
 EMAIL=500kg.ggwp@gmail.com
 
-load_balancer_dim="Name=LoadBalancer,Value=loadbalancer/web-elb"
+LBD="Name=LoadBalancer,Value=loadbalancer/web-elb"
 #target_group_dim="Name=TargetGroup,Value=targetgroup/practice-4-target-group/dd7baea246f0d5d2"
 
 TOPIC=$(aws sns create-topic \
@@ -22,7 +22,7 @@ aws cloudwatch put-metric-alarm \
             --alarm-name healthy_check \
             --alarm-description "Healthy Alarm" \
             --namespace AWS/ApplicationELB \
-            --dimensions $load_balancer_dim  \
+            --dimensions $LBD  \
             --period 300 \
             --evaluation-periods 1 \
             --threshold 2 \
@@ -31,4 +31,4 @@ aws cloudwatch put-metric-alarm \
             --alarm-actions $TOPIC \
             --statistic Minimum
 
-echo "Created alarm metric"
+echo "Metric has been created"
