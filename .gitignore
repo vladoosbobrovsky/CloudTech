@@ -1,4 +1,5 @@
 **/.terraform/*
+**/lambda/lambda-s3/node_modules
 #awd
 # .tfstate files
 *.tfstate
