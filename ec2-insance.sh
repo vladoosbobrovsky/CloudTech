@@ -68,7 +68,7 @@ aws ec2 wait security-group-exists --group-ids $SGROUP_ID
 echo "Security group: $SGROUP_ID created"
 
 # Create an ec2 instance running Ubuntu 18 AMI on t2.micro
-INSTANCE_ID=$(aws ec2 run-instances --image-id ami-01fee56b22f308154 --count 1 --instance-type t2.micro --key-name WebServer --user-data file://userdata.sh --security-group-ids $SGROUP_ID --subnet-id $SUBNET_ID  | grep InstanceId | cut -f4 -d \" )
+INSTANCE_ID=$(aws ec2 run-instances --image-id ami-0ac73f33a1888c64a --count 1 --instance-type t2.micro --key-name WebServer --user-data file://userdata.sh --security-group-ids $SGROUP_ID --subnet-id $SUBNET_ID  | grep InstanceId | cut -f4 -d \" )
 aws ec2 create-tags --resources $INSTANCE_ID --tags Key=Role,Value="Web-Server"
 echo "Creating instance"
 echo "This could take a few moments..."
