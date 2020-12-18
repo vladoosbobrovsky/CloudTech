@@ -1,0 +1,15 @@
+ 2013  nano task.json 
+ 2014  aws ecs register-task-definition --cli-input-json file://$HOME/IT_STEP_DEV/ecs/task.json
+ 2015  aws ecs list-task-definitions
+ 2016  aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-5d96d510],securityGroups=[sg-039077f8bc9c9e310],assignPublicIp=ENABLED}"
+ 2017  aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-360cbc50],securityGroups=[sg-039077f8bc9c9e310],assignPublicIp=ENABLED}"
+ 2018  cat ~/.aws/config 
+ 2019  aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-fbc51b90],securityGroups=[sg-059a5b5ef2e3c888d],assignPublicIp=ENABLED}"
+ 2020  aws ecs list-services --cluster fargate-cluster
+ 2021  aws ecs describe-services --cluster fargate-cluster --services fargate-service
+ 2022  nano task.json 
+ 2023  aws ecs register-task-definition --cli-input-json file://$HOME/IT_STEP_DEV/ecs/task.json
+ 2024  aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:2 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-5d96d510],securityGroups=[sg-039077f8bc9c9e310],assignPublicIp=ENABLED}"
+ 2025* aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:2 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-fbc51b90],securityGroups=[sg-059a5b5ef2e3c888d],assignPublicIp=ENABLED}
+ 2026  history 
+ 2027  history | tail -15 > history.txt
